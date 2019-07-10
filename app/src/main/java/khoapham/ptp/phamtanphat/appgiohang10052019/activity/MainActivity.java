@@ -1,18 +1,18 @@
-package khoapham.ptp.phamtanphat.appgiohang10052019;
+package khoapham.ptp.phamtanphat.appgiohang10052019.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
+
+import khoapham.ptp.phamtanphat.appgiohang10052019.R;
 
 public class MainActivity extends AppCompatActivity {
 

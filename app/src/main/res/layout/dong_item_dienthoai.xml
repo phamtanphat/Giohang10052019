@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/imageviewDienthoai"
+            android:layout_margin="5dp"
+            android:layout_width="150dp"
+            android:layout_height="120dp" />
+        <TextView
+            android:id="@+id/textviewTendienthoai"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/imageviewDienthoai"
+            android:textStyle="bold"
+            android:textColor="#f20"
+            android:textSize="25sp"
+            android:text="Iphone 8 plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textviewGiadienthoai"
+            android:layout_margin="5dp"
+            android:layout_below="@id/textviewTendienthoai"
+            android:layout_toRightOf="@id/imageviewDienthoai"
+            android:textStyle="italic"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:text="Iphone 8 plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imageviewMinus"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/imageviewDienthoai"
+            android:layout_below="@id/textviewGiadienthoai"
+            android:src="@drawable/ic_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/textviewSoluongdienthoai"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/textviewGiadienthoai"
+            android:layout_toRightOf="@id/imageviewMinus"
+            android:textStyle="italic"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/imageviewPlus"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/textviewSoluongdienthoai"
+            android:layout_below="@id/textviewGiadienthoai"
+            android:src="@drawable/ic_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
