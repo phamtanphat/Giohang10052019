@@ -23,8 +23,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageSwitcher = findViewById(R.id.imageswitcher);
+        initview();
+        initbaner();
+    }
 
+    private void initview() {
+        imageSwitcher = findViewById(R.id.imageswitcher);
+    }
+
+    private void initbaner() {
         Animation out= AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
         Animation in= AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
 
@@ -51,9 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 imageSwitcher.setImageResource(mangbaner[i]);
                 i++;
-                handler.postDelayed(this,1000);
+                handler.postDelayed(this,2000);
             }
-        },1000);
-
+        },0);
     }
 }
