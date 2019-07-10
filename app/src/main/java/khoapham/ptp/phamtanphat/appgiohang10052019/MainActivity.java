@@ -17,7 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageSwitcher = findViewById(R.id.imageswitcher);
+
         Animation out= AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
         Animation in= AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
+
+        imageSwitcher.setInAnimation(in);
+        imageSwitcher.setOutAnimation(out);
     }
 }
