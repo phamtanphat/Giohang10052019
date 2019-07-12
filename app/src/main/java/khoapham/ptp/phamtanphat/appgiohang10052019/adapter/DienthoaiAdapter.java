@@ -1,5 +1,6 @@
 package khoapham.ptp.phamtanphat.appgiohang10052019.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.Dienthoai;
+import khoapham.ptp.phamtanphat.appgiohang10052019.model.SingletonGiohang;
 
 public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.Viewholder> {
 
@@ -55,6 +57,18 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
                 dienthoai.setSoluong(dienthoai.getSoluong() - 1);
                 mangdienthoai.set(dienthoai.getId(),dienthoai);
                 notifyDataSetChanged();
+            }
+        });
+        holder.txtDatmua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dienthoai == null) return;
+                if (dienthoai.getSoluong() <= 0) return;
+                if (SingletonGiohang.getInstance().timkiem(dienthoai.getId())){
+                    SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                }else{
+                    SingletonGiohang.getInstance().themsanpham(dienthoai);
+                }
             }
         });
     }

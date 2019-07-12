@@ -27,4 +27,11 @@ public class SingletonGiohang {
     public ArrayList<Dienthoai> getGiohang(){
         return mangdienthoai;
     }
+    public boolean timkiem(int idsanpham){
+        for (Dienthoai dienthoai : mangdienthoai){
+            if (dienthoai.getId() == idsanpham) return true;
+
+        }
+        return false;
+    }
 }
