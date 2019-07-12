@@ -49,8 +49,12 @@ public class MainActivity extends AppCompatActivity {
         dienthoaiArrayList.add(new Dienthoai(4,"Dien thoai 5",R.drawable.hinh5,240000,0));
 
         dienthoaiAdapter = new DienthoaiAdapter(dienthoaiArrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(linearLayoutManager);
+
         recyclerView.setAdapter(dienthoaiAdapter);
+
     }
 
     private void initbaner() {

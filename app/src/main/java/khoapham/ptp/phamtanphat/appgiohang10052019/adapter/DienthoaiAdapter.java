@@ -33,13 +33,30 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, int position) {
-        Dienthoai dienthoai = mangdienthoai.get(position);
+        final Dienthoai dienthoai = mangdienthoai.get(position);
         holder.imgdienthoai.setImageResource(dienthoai.getHinhanh());
         holder.txtSoluong.setText(dienthoai.getSoluong() + "");
         holder.txtTen.setText(dienthoai.getTen());
         DecimalFormat decimalFormat = new DecimalFormat("###.###");
         holder.txtGia.setText(decimalFormat.format(dienthoai.getGia()) + " Đ");
 
+        holder.imgCong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dienthoai.setSoluong(dienthoai.getSoluong() + 1);
+                mangdienthoai.set(dienthoai.getId(),dienthoai);
+                notifyDataSetChanged();
+            }
+        });
+        holder.imgTru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dienthoai.getSoluong() <=0) return;
+                dienthoai.setSoluong(dienthoai.getSoluong() - 1);
+                mangdienthoai.set(dienthoai.getId(),dienthoai);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
