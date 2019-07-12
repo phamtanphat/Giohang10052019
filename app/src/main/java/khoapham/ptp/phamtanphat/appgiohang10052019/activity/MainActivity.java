@@ -50,18 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 return myView;
             }
         });
-//        final Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (i >= mangbaner.length){
-//                    i = 0;
-//                }
-//                imageSwitcher.setImageResource(mangbaner[i]);
-//                i++;
-//                handler.postDelayed(this,2000);
-//            }
-//        },0);
         CountDownTimer countDownTimer = new CountDownTimer(1000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
