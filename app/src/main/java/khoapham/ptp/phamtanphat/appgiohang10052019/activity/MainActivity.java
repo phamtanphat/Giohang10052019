@@ -1,6 +1,8 @@
 package khoapham.ptp.phamtanphat.appgiohang10052019.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ActionBar;
 import android.os.Bundle;
@@ -12,13 +14,20 @@ import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.ViewSwitcher;
 
+import java.util.ArrayList;
+
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
+import khoapham.ptp.phamtanphat.appgiohang10052019.adapter.DienthoaiAdapter;
+import khoapham.ptp.phamtanphat.appgiohang10052019.model.Dienthoai;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageSwitcher imageSwitcher;
     Integer[] mangbaner = {R.drawable.baner1,R.drawable.baner2,R.drawable.baner3};
     int i = 0;
+    RecyclerView recyclerView;
+    DienthoaiAdapter dienthoaiAdapter;
+    ArrayList<Dienthoai> dienthoaiArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void initview() {
         imageSwitcher = findViewById(R.id.imageswitcher);
+        recyclerView = findViewById(R.id.recyclerviewDienthoai);
+        dienthoaiArrayList = new ArrayList<>();
+
+        dienthoaiArrayList.add(new Dienthoai(0,"Dien thoai 1",R.drawable.hinh1,200000,0));
+        dienthoaiArrayList.add(new Dienthoai(1,"Dien thoai 2",R.drawable.hinh2,210000,0));
+        dienthoaiArrayList.add(new Dienthoai(2,"Dien thoai 3",R.drawable.hinh3,220000,0));
+        dienthoaiArrayList.add(new Dienthoai(3,"Dien thoai 4",R.drawable.hinh4,230000,0));
+        dienthoaiArrayList.add(new Dienthoai(4,"Dien thoai 5",R.drawable.hinh5,240000,0));
+
+        dienthoaiAdapter = new DienthoaiAdapter(dienthoaiArrayList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(dienthoaiAdapter);
     }
 
     private void initbaner() {
