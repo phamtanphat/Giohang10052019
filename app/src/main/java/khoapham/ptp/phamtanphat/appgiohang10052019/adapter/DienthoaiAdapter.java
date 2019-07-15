@@ -89,16 +89,16 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
 
     class Viewholder extends RecyclerView.ViewHolder{
         ImageView imgCong,imgTru,imgdienthoai;
-        TextView txtTen,txtGia,txtSoluong,txtDatmua;
+        TextView txtTen,txtGia,txtSoluong;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
-            imgCong = itemView.findViewById(R.id.imageviewPlus);
-            imgTru = itemView.findViewById(R.id.imageviewMinus);
-            imgdienthoai = itemView.findViewById(R.id.imageviewDienthoai);
-            txtTen = itemView.findViewById(R.id.textviewTendienthoai);
-            txtGia = itemView.findViewById(R.id.textviewGiadienthoai);
-            txtSoluong = itemView.findViewById(R.id.textviewSoluongdienthoai);
-            txtDatmua = itemView.findViewById(R.id.textviewDathang);
+            imgCong = itemView.findViewById(R.id.imageviewGiohangPlus);
+            imgTru = itemView.findViewById(R.id.imageviewGiohangMinus);
+            imgdienthoai = itemView.findViewById(R.id.imageviewGiohang);
+            txtTen = itemView.findViewById(R.id.textviewGiohangTendienthoai);
+            txtGia = itemView.findViewById(R.id.textviewGiohangGiadienthoai);
+            txtSoluong = itemView.findViewById(R.id.textviewGiohangSoluongdienthoai);
+
         }
     }
 }
