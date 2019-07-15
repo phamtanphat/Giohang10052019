@@ -9,34 +9,50 @@ public class SingletonGiohang {
     private static ArrayList<Dienthoai> mangdienthoai;
 
     private SingletonGiohang() {
-       mangdienthoai = new ArrayList<>();
+        mangdienthoai = new ArrayList<>();
     }
-    public static SingletonGiohang getInstance(){
-        if (instance == null){
+
+    public static SingletonGiohang getInstance() {
+        if (instance == null) {
             instance = new SingletonGiohang();
         }
         return instance;
     }
-    public void xoasanpham(int index ){
-        mangdienthoai.remove(index);
-    }
-    public void themsanpham(Dienthoai dienthoai){
-        mangdienthoai.add(dienthoai);
-    }
-    public void capnhatsanpham(Dienthoai dienthoai){
-        if (mangdienthoai.contains(dienthoai)){
-            mangdienthoai.remove(dienthoai);
+
+    public void themsanpham(Dienthoai dienthoai) {
+        if (mangdienthoai.size() >0){
+            for (int i = 0 ; i< mangdienthoai.size() ; i++){
+                if (mangdienthoai.get(i).getSoluong() <= 0){
+                    mangdienthoai.remove(i);
+                }
+            }
+        }
+        if (dienthoai.getSoluong() > 0){
             mangdienthoai.add(dienthoai);
+        }
+    }
+    public void capnhatsanpham(Dienthoai dienthoai) {
+        if (mangdienthoai.contains(dienthoai)) {
+           for (int i = 0 ; i< mangdienthoai.size() ; i++){
+               if (mangdienthoai.get(i).getSoluong() <= 0){
+                   mangdienthoai.remove(i);
+               }
+           }
+            mangdienthoai.remove(dienthoai);
+            if (dienthoai.getSoluong() > 0){
+                mangdienthoai.add(dienthoai);
+            }
         }
 
     }
-    public ArrayList<Dienthoai> getGiohang(){
+
+    public ArrayList<Dienthoai> getGiohang() {
         return mangdienthoai;
     }
-    public boolean timkiem(int idsanpham){
-        for (Dienthoai dienthoai : mangdienthoai){
-            if (dienthoai.getId() == idsanpham) return true;
 
+    public boolean timkiem(int idsanpham) {
+        for (Dienthoai dienthoai : mangdienthoai) {
+            if (dienthoai.getId() == idsanpham) return true;
         }
         return false;
     }
