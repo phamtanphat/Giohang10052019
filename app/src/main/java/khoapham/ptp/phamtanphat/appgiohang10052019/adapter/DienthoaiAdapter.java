@@ -1,5 +1,7 @@
 package khoapham.ptp.phamtanphat.appgiohang10052019.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +18,18 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
+import khoapham.ptp.phamtanphat.appgiohang10052019.activity.GiohangActivity;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.Dienthoai;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.SingletonGiohang;
 
 public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.Viewholder> {
 
     private ArrayList<Dienthoai> mangdienthoai;
+    private Context context;
 
-    public DienthoaiAdapter(ArrayList<Dienthoai> mangdienthoai) {
+    public DienthoaiAdapter(ArrayList<Dienthoai> mangdienthoai , Context context) {
         this.mangdienthoai = mangdienthoai;
+        this.context = context;
     }
 
     @NonNull
@@ -36,7 +41,7 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull final Viewholder holder, int position) {
         final Dienthoai dienthoai = mangdienthoai.get(position);
         holder.imgdienthoai.setImageResource(dienthoai.getHinhanh());
         holder.txtSoluong.setText(dienthoai.getSoluong() + "");
@@ -71,7 +76,8 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
                 }else{
                     SingletonGiohang.getInstance().themsanpham(dienthoai);
                 }
-
+                Intent intent = new Intent(context , GiohangActivity.class);
+                context.startActivity(intent);
             }
         });
     }
