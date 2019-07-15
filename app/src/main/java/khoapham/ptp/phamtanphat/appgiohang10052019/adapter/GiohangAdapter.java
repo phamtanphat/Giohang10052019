@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
 import khoapham.ptp.phamtanphat.appgiohang10052019.activity.GiohangActivity;
@@ -28,8 +29,31 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Viewholder holder, final int position) {
+        final Dienthoai dienthoai = SingletonGiohang.getInstance().getGiohang().get(position);
+        holder.imgdienthoai.setImageResource(dienthoai.getHinhanh());
+        holder.txtSoluong.setText(dienthoai.getSoluong() + "");
+        holder.txtTen.setText(dienthoai.getTen());
+        DecimalFormat decimalFormat = new DecimalFormat("###.###");
+        holder.txtGia.setText(decimalFormat.format(dienthoai.getGia()) + " Đ");
 
+        holder.imgCong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dienthoai.setSoluong(dienthoai.getSoluong() + 1);
+                SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                notifyDataSetChanged();
+            }
+        });
+        holder.imgTru.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dienthoai.getSoluong() <=0) return;
+                dienthoai.setSoluong(dienthoai.getSoluong() - 1);
+                SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
