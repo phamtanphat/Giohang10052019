@@ -71,8 +71,8 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
             public void onClick(View v) {
                 if (dienthoai == null) return;
                 if (dienthoai.getSoluong() <= 0) return;
-                if (SingletonGiohang.getInstance().timkiem(dienthoai.getId()) && dienthoai.getId() != 0){
-                    SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                if (SingletonGiohang.getInstance().timkiem(dienthoai.getId())){
+                    SingletonGiohang.getInstance().capnhatsanpham(dienthoai);
                 }else{
                     SingletonGiohang.getInstance().themsanpham(dienthoai);
                 }

@@ -41,7 +41,7 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
             @Override
             public void onClick(View v) {
                 dienthoai.setSoluong(dienthoai.getSoluong() + 1);
-                SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                SingletonGiohang.getInstance().capnhatsanpham(dienthoai);
                 notifyDataSetChanged();
             }
         });
@@ -50,7 +50,7 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
             public void onClick(View v) {
                 if (dienthoai.getSoluong() <=0) return;
                 dienthoai.setSoluong(dienthoai.getSoluong() - 1);
-                SingletonGiohang.getInstance().capnhatsanpham(dienthoai.getId(),dienthoai);
+                SingletonGiohang.getInstance().capnhatsanpham(dienthoai);
                 notifyDataSetChanged();
             }
         });

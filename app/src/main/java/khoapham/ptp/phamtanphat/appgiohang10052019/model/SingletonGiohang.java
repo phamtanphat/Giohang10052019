@@ -1,5 +1,7 @@
 package khoapham.ptp.phamtanphat.appgiohang10052019.model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class SingletonGiohang {
@@ -21,8 +23,12 @@ public class SingletonGiohang {
     public void themsanpham(Dienthoai dienthoai){
         mangdienthoai.add(dienthoai);
     }
-    public void capnhatsanpham(int index , Dienthoai dienthoai){
-        mangdienthoai.set(index,dienthoai);
+    public void capnhatsanpham(Dienthoai dienthoai){
+        if (mangdienthoai.contains(dienthoai)){
+            mangdienthoai.remove(dienthoai);
+            mangdienthoai.add(dienthoai);
+        }
+
     }
     public ArrayList<Dienthoai> getGiohang(){
         return mangdienthoai;
