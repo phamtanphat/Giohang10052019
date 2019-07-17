@@ -5,14 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import khoapham.ptp.phamtanphat.appgiohang10052019.Event;
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
 import khoapham.ptp.phamtanphat.appgiohang10052019.adapter.GiohangAdapter;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.SingletonGiohang;
 
-public class GiohangActivity extends AppCompatActivity {
+public class GiohangActivity extends AppCompatActivity  {
 
     RecyclerView recyclerViewGiohang;
     GiohangAdapter giohangAdapter;
@@ -35,6 +37,15 @@ public class GiohangActivity extends AppCompatActivity {
 
         recyclerViewGiohang.setAdapter(giohangAdapter);
 
-        txtTongtien.setText();
+        SingletonGiohang.getInstance().tongtienThanhtoan(new Event() {
+            @Override
+            public void onUpdate(Long tongtien) {
+                Log.d("BBB",tongtien + "");
+            }
+        });
+
+
     }
+
+
 }

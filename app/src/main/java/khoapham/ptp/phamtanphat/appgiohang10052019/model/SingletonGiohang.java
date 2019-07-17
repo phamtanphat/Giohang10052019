@@ -4,12 +4,18 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import khoapham.ptp.phamtanphat.appgiohang10052019.Event;
+import khoapham.ptp.phamtanphat.appgiohang10052019.activity.MainActivity;
+
 public class SingletonGiohang {
+
     private static SingletonGiohang instance;
     private static ArrayList<Dienthoai> mangdienthoai;
 
     private SingletonGiohang() {
         mangdienthoai = new ArrayList<>();
+
+
     }
 
     public static SingletonGiohang getInstance() {
@@ -26,6 +32,7 @@ public class SingletonGiohang {
                }
            }
            mangdienthoai.add(dienthoai);
+
        }
     }
     public void capnhatsanpham(Dienthoai dienthoai) {
@@ -38,6 +45,8 @@ public class SingletonGiohang {
                     mangdienthoai.remove(i);
                 }
             }
+
+
         }
     }
     public ArrayList<Dienthoai> getGiohang() {
@@ -49,16 +58,17 @@ public class SingletonGiohang {
         }
         return false;
     }
-    public long tongtienThanhtoan(){
+    //mvvm , mvp
+    public void tongtienThanhtoan(Event event){
         long ketqua = 0;
         if (mangdienthoai != null){
             if (mangdienthoai.size() == 0){
-                return 0;
+                ketqua = 0;
             }
             for (int i = 0 ; i<mangdienthoai.size() ; i++ ){
                 ketqua += (mangdienthoai.get(i).getSoluong() * mangdienthoai.get(i).getGia());
             }
         }
-       return ketqua;
+        event.onUpdate(ketqua);
     }
 }
