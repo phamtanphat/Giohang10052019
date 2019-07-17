@@ -34,11 +34,8 @@ public class GiohangActivity extends AppCompatActivity implements Updateview {
         btnThanhtoan = findViewById(R.id.buttonThanhtoan);
 
         giohangAdapter = new GiohangAdapter(this);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-
         recyclerViewGiohang.setLayoutManager(linearLayoutManager);
-
         recyclerViewGiohang.setAdapter(giohangAdapter);
 
         SingletonGiohang.getInstance().tongtienThanhtoan(new Event() {
@@ -49,7 +46,6 @@ public class GiohangActivity extends AppCompatActivity implements Updateview {
             }
         });
     }
-
     @Override
     public void onUpdatetogntien(Long tien) {
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
