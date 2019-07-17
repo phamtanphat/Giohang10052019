@@ -36,7 +36,6 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.dong_item_giohang,parent,false);
-
         return new Viewholder(view);
     }
 

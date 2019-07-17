@@ -2,6 +2,10 @@ package khoapham.ptp.phamtanphat.appgiohang10052019.model;
 
 import android.util.Log;
 
+import androidx.arch.core.util.Function;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Transformations;
+
 import java.util.ArrayList;
 
 import khoapham.ptp.phamtanphat.appgiohang10052019.Event;
@@ -9,14 +13,11 @@ import khoapham.ptp.phamtanphat.appgiohang10052019.activity.MainActivity;
 
 public class SingletonGiohang {
 
-
     private static SingletonGiohang instance;
     private static ArrayList<Dienthoai> mangdienthoai;
 
     private SingletonGiohang() {
         mangdienthoai = new ArrayList<>();
-
-
     }
 
     public static SingletonGiohang getInstance() {
