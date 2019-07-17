@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import khoapham.ptp.phamtanphat.appgiohang10052019.Event;
 import khoapham.ptp.phamtanphat.appgiohang10052019.activity.MainActivity;
 
+//Pure
 public class SingletonGiohang {
 
     private static SingletonGiohang instance;
@@ -19,7 +20,6 @@ public class SingletonGiohang {
     private SingletonGiohang() {
         mangdienthoai = new ArrayList<>();
     }
-
     public static SingletonGiohang getInstance() {
         if (instance == null) {
             instance = new SingletonGiohang();
@@ -34,11 +34,9 @@ public class SingletonGiohang {
                }
            }
            mangdienthoai.add(dienthoai);
-
        }
     }
     public void capnhatsanpham(Dienthoai dienthoai) {
-
         if (mangdienthoai != null) {
             for (int i = 0 ; i< mangdienthoai.size() ; i++){
                 if (dienthoai.getId() == mangdienthoai.get(i).getId()){
@@ -48,8 +46,6 @@ public class SingletonGiohang {
                     mangdienthoai.remove(i);
                 }
             }
-
-
         }
     }
     public ArrayList<Dienthoai> getGiohang() {
