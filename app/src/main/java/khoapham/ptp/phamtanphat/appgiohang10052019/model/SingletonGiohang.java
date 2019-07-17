@@ -18,32 +18,28 @@ public class SingletonGiohang {
         }
         return instance;
     }
-
     public void themsanpham(Dienthoai dienthoai) {
-        if (mangdienthoai!=null){
-            for (int i = 0; i < mangdienthoai.size(); i++) {
-                if (mangdienthoai.get(i).getSoluong()<=0){
-                    mangdienthoai.remove(i);
-                }
-            }
-        }
-        mangdienthoai.add(dienthoai);
+       if (mangdienthoai!= null){
+           for (int i = 0 ; i< mangdienthoai.size() ; i++){
+               if (mangdienthoai.get(i).getSoluong() <= 0){
+                   mangdienthoai.remove(i);
+               }
+           }
+           mangdienthoai.add(dienthoai);
+       }
     }
-
     public void capnhatsanpham(Dienthoai dienthoai) {
         if (mangdienthoai != null) {
-            for (int i = 0; i < mangdienthoai.size(); i++) {
-                if (dienthoai.getId() == mangdienthoai.get(i).getId()) {
-                    mangdienthoai.set(i, dienthoai);
+            for (int i = 0 ; i< mangdienthoai.size() ; i++){
+                if (dienthoai.getId() == mangdienthoai.get(i).getId()){
+                    mangdienthoai.set(i,dienthoai);
                 }
-                if (mangdienthoai.get(i).getSoluong()<=0){
+                if (mangdienthoai.get(i).getSoluong() <= 0){
                     mangdienthoai.remove(i);
                 }
             }
         }
-
     }
-
     public ArrayList<Dienthoai> getGiohang() {
         return mangdienthoai;
     }
