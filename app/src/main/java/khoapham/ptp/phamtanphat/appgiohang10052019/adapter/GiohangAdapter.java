@@ -1,5 +1,6 @@
 package khoapham.ptp.phamtanphat.appgiohang10052019.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +14,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+import khoapham.ptp.phamtanphat.appgiohang10052019.Event;
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
+import khoapham.ptp.phamtanphat.appgiohang10052019.Updateview;
 import khoapham.ptp.phamtanphat.appgiohang10052019.activity.GiohangActivity;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.Dienthoai;
 import khoapham.ptp.phamtanphat.appgiohang10052019.model.SingletonGiohang;
 
 public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewholder> {
 
+    Updateview updateview;
+    Context context;
+
+    public GiohangAdapter(Context context) {
+        this.context = context;
+        updateview = (Updateview) context;
+    }
+
     @NonNull
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.dong_item_giohang,parent,false);
+
         return new Viewholder(view);
     }
 
@@ -42,6 +54,12 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
             public void onClick(View v) {
                 dienthoai.setSoluong(dienthoai.getSoluong() + 1);
                 SingletonGiohang.getInstance().capnhatsanpham(dienthoai);
+                SingletonGiohang.getInstance().tongtienThanhtoan(new Event() {
+                    @Override
+                    public void onUpdate(Long tongtien) {
+                        updateview.onUpdatetogntien(tongtien);
+                    }
+                });
                 notifyDataSetChanged();
             }
         });
@@ -51,6 +69,12 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
                 if (dienthoai.getSoluong() <=0) return;
                 dienthoai.setSoluong(dienthoai.getSoluong() - 1);
                 SingletonGiohang.getInstance().capnhatsanpham(dienthoai);
+                SingletonGiohang.getInstance().tongtienThanhtoan(new Event() {
+                    @Override
+                    public void onUpdate(Long tongtien) {
+                        updateview.onUpdatetogntien(tongtien);
+                    }
+                });
                 notifyDataSetChanged();
             }
         });
@@ -69,6 +93,7 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
         TextView txtTen,txtGia,txtSoluong;
         public Viewholder(@NonNull View itemView) {
             super(itemView);
+
             imgCong = itemView.findViewById(R.id.imageviewGiohangPlus);
             imgTru = itemView.findViewById(R.id.imageviewGiohangMinus);
             imgdienthoai = itemView.findViewById(R.id.imageviewGiohang);
@@ -78,4 +103,5 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
 
         }
     }
+
 }
