@@ -46,7 +46,7 @@ public class DienthoaiAdapter extends RecyclerView.Adapter<DienthoaiAdapter.View
         holder.imgdienthoai.setImageResource(dienthoai.getHinhanh());
         holder.txtSoluong.setText(dienthoai.getSoluong() + "");
         holder.txtTen.setText(dienthoai.getTen());
-        DecimalFormat decimalFormat = new DecimalFormat("###.###");
+        DecimalFormat decimalFormat = new DecimalFormat("###,###");
         holder.txtGia.setText(decimalFormat.format(dienthoai.getGia()) + " Đ");
 
         holder.imgCong.setOnClickListener(new View.OnClickListener() {

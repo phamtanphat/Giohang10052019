@@ -34,8 +34,8 @@ public class GiohangAdapter extends RecyclerView.Adapter<GiohangAdapter.Viewhold
         holder.imgdienthoai.setImageResource(dienthoai.getHinhanh());
         holder.txtSoluong.setText(dienthoai.getSoluong() + "");
         holder.txtTen.setText(dienthoai.getTen());
-        DecimalFormat decimalFormat = new DecimalFormat("###.###");
-        holder.txtGia.setText(decimalFormat.format(dienthoai.getGia()) + " Đ");
+        DecimalFormat decimalFormat = new DecimalFormat("###,###");
+        holder.txtGia.setText(decimalFormat.format(dienthoai.getGia() * dienthoai.getSoluong()) + " Đ");
 
         holder.imgCong.setOnClickListener(new View.OnClickListener() {
             @Override

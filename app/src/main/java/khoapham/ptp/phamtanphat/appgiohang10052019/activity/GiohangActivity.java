@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import khoapham.ptp.phamtanphat.appgiohang10052019.R;
 import khoapham.ptp.phamtanphat.appgiohang10052019.adapter.GiohangAdapter;
+import khoapham.ptp.phamtanphat.appgiohang10052019.model.SingletonGiohang;
 
 public class GiohangActivity extends AppCompatActivity {
 
@@ -33,5 +34,7 @@ public class GiohangActivity extends AppCompatActivity {
         recyclerViewGiohang.setLayoutManager(linearLayoutManager);
 
         recyclerViewGiohang.setAdapter(giohangAdapter);
+
+        txtTongtien.setText();
     }
 }

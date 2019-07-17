@@ -43,11 +43,22 @@ public class SingletonGiohang {
     public ArrayList<Dienthoai> getGiohang() {
         return mangdienthoai;
     }
-
     public boolean timkiem(int idsanpham) {
         for (Dienthoai dienthoai : mangdienthoai) {
             if (dienthoai.getId() == idsanpham) return true;
         }
         return false;
+    }
+    public long tongtienThanhtoan(){
+        long ketqua = 0;
+        if (mangdienthoai != null){
+            if (mangdienthoai.size() == 0){
+                return 0;
+            }
+            for (int i = 0 ; i<mangdienthoai.size() ; i++ ){
+                ketqua += (mangdienthoai.get(i).getSoluong() * mangdienthoai.get(i).getGia());
+            }
+        }
+       return ketqua;
     }
 }
